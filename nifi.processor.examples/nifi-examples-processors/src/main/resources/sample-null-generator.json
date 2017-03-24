@@ -1,0 +1,45 @@
+{
+    "delimiter": ",",
+    "fields": [
+        {
+            "string": {
+                "random": {
+                    "min": 3,
+                    "max": 5,
+                    "chars": "ABDEF12345",
+                    "pool": {
+                        "size": "100"
+                    }
+                }
+            }
+        },
+        {
+            "null": {
+            }
+        },
+        {
+            "number": {
+                "type": "int",
+                "min": 100,
+                "max": 1000
+            }
+        },
+        {
+            "ip": {
+                "minIp": "10.0.14.0",
+                "maxIp": "10.121.32.254"
+            }
+        },
+        {
+            "null": {
+                "nullvalue": "NULL"
+            }
+        },
+        {
+            "boolean": {
+                "format": "0:1"
+            }
+        }
+
+    ]
+}

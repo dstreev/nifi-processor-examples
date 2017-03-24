@@ -1,0 +1,52 @@
+{
+    "delimiter": ",",
+    "fields": [
+        {
+            "start.stop": {
+                "order": [1,2],
+                "format": "yyyy-MM-dd HH:mm:ss",
+                "range": {
+                    "min": "2010-01-01 00:00:00",
+                    "max": "2013-04-01 23:59:59"
+                },
+                "spread": {
+                    "min": 100,
+                    "max": 100000
+                }
+            }
+        },
+        {
+            "null": {
+                "order": 6
+            }
+        },
+        {
+            "number": {
+                "order": 3,
+                "type": "int",
+                "min": 100,
+                "max": 1000
+            }
+        },
+        {
+            "ip": {
+                "order": 4,
+                "minIp": "10.0.14.0",
+                "maxIp": "10.121.32.254"
+            }
+        },
+        {
+            "null": {
+                "order": 5,
+                "nullvalue": "NULL"
+            }
+        },
+        {
+            "boolean": {
+                "order": 7,
+                "format": "Y:N"
+            }
+        }
+
+    ]
+}

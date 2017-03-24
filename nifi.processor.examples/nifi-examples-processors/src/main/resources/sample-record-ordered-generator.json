@@ -1,0 +1,98 @@
+{
+    "delimiter": "\t",
+    "fields": [
+        {
+            "string": {
+                "order": 4,
+                "random": {
+                    "min": 10,
+                    "max": 10,
+                    "chars": "ABDEF12345",
+                    "pool": {
+                        "size": "100"
+                    }
+                }
+            }
+        },
+        {
+            "date": {
+                "order": 2,
+                "format": "yyyy-MM-dd HH:mm:ss",
+                "range": {
+                    "min": "2010-01-01 00:00:00",
+                    "max": "2013-04-01 23:59:59"
+                }
+            }
+        },
+        {
+            "number": {
+                "order": 3,
+                "type": "int",
+                "min": 100,
+                "max": 1000
+            }
+        },
+        {
+            "ip": {
+                "order": 1,
+                "minIp": "10.0.14.0",
+                "maxIp": "10.121.32.254"
+            }
+        },
+        {
+            "string": {
+                "order": 5,
+                "set": ["ToMobile", "FromMobile"]
+            }
+        },
+        {
+            "ip": {
+                "order": 6,
+                "minIp": "192.168.14.0",
+                "maxIp": "192.168.100.254",
+                "pool": {
+                    "size": 100
+                }
+            }
+        },
+        {
+            "boolean": {
+                "order": 7,
+                "format": "0:1"
+            }
+        },
+        {
+            "number": {
+                "order": 8,
+                "type": "long",
+                "min": 4523100,
+                "max": 9921000
+            }
+        },
+        {
+            "number": {
+                "order": 9,
+                "type": "float",
+                "decimals": 2,
+                "min": 10,
+                "max": 1000
+            }
+        },
+        {
+            "boolean": {
+                "order": 10,
+                "format": "false:true"
+            }
+        },
+        {
+            "number": {
+                "order": 11,
+                "type": "double",
+                "decimals": 4,
+                "min": 10,
+                "max": 1000
+            }
+        }
+
+    ]
+}

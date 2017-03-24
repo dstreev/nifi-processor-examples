@@ -1,0 +1,254 @@
+{
+    "title": "Data Generator Schema",
+    "description": "",
+    "type": "object",
+    "properties": {
+        "cdc": {
+            "type": "boolean",
+            "description": "generate CDC records"
+        },
+        "cdctype": {
+            "type": "number",
+            "description": "CDC Output Format: 1=KEY,COLUMN,VALUE  2=KEY,FIELD1,FIELD2,FIELD3.  Where 2 is a sparsely populated set of fields that only represent those that have changed"
+        },
+        "delimiter": {
+            "type": "string",
+            "description": ""
+        },
+        "fields": {
+            "type": "array",
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/string"
+                },
+                {
+                    "$ref": "#/definitions/number"
+                },
+                {
+                    "$ref": "#/definitions/boolean"
+                },
+                {
+                    "$ref": "#/definitions/ip"
+                },
+                {
+                    "$ref": "#/definitions/date"
+                }
+            ]
+        }
+    },
+    "definitions": {
+        "string": {
+            "type": "object",
+            "title": " ",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "field name"
+                },
+                "order": {
+                    "type": "number",
+                    "description": "used to control the ordering of the fields"
+                },
+                "desc": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "boolean",
+                    "description": "Used to identify this field as part of the key"
+                }
+            },
+            "oneOf": [
+                {
+                    "random": {
+                        "min": {
+                            "type": "number",
+                            "description": "Default to 10"
+                        },
+                        "max": {
+                            "type": "number",
+                            "description": "Default to 10"
+                        },
+                        "chars": {
+                            "type": "string",
+                            "description": "description"
+                        },
+                        "pool": {
+                            "type": "object",
+                            "description": "When present, will establish a pool of values to be used for values",
+                            "properties": {
+                                "size": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+
+                    }
+                },
+                {
+                    "set": {
+                        "type": "array"
+                    }
+                }
+            ]
+        },
+        "number": {
+            "type": "object",
+            "title": "Number",
+            "description": "",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "field name"
+                },
+                "order": {
+                    "type": "number",
+                    "description": "used to control the ordering of the fields"
+                },
+                "desc": {
+                    "type": "string",
+                    "description": "description"
+                },
+                "key": {
+                    "type": "boolean",
+                    "description": "Used to identify this field as part of the key"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "One of: int,long,float,double"
+                },
+                "min": {
+                    "type": "number",
+                    "description": "Default to 10"
+                },
+                "max": {
+                    "type": "number",
+                    "description": "Default to 10"
+                }
+            }
+        },
+        "ip": {
+            "type": "object",
+            "title": " ",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "field name"
+                },
+                "order": {
+                    "type": "number",
+                    "description": "used to control the ordering of the fields"
+                },
+                "desc": {
+                    "type": "string",
+                    "description": "description"
+                },
+                "key": {
+                    "type": "boolean",
+                    "description": "Used to identify this field as part of the key"
+                },
+                "minIp": {
+                    "type": "number",
+                    "description": "Default to 10"
+                },
+                "maxIp": {
+                    "type": "number",
+                    "description": "Default to 10"
+                },
+                "pool": {
+                    "type": "object",
+                    "description": "When present, will establish a pool of values to be used for values",
+                    "properties": {
+                        "size": {
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        },
+        "date": {
+            "type": "object",
+            "title": " ",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "field name"
+                },
+                "order": {
+                    "type": "number",
+                    "description": "used to control the ordering of the fields"
+                },
+                "desc": {
+                    "type": "string",
+                    "description": "description"
+                },
+                "key": {
+                    "type": "boolean",
+                    "description": "Used to identify this field as part of the key"
+                },
+                "format": {
+                    "type": "string",
+                    "description": "Format of the specified and produced date"
+                },
+                "range": {
+                    "type": "object",
+                    "properties": {
+                        "min": {
+                            "type": "string",
+                            "description": ""
+                        },
+                        "max": {
+                            "type": "string",
+                            "description": ""
+                        }
+                    }
+                }
+            }
+        },
+        "boolean": {
+            "type": "object",
+            "title": " ",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "field name"
+                },
+                "order": {
+                    "type": "number",
+                    "description": "used to control the ordering of the fields"
+                },
+                "key": {
+                    "type": "boolean",
+                    "description": "Used to identify this field as part of the key"
+                },
+                "format": {
+                    "type": "string",
+                    "description": "In the format of false:true. IE: '0:1' or 'F:T' or 'false:true' or 'FALSE:TRUE'"
+                }
+            }
+        },
+        "null": {
+            "type": "object",
+            "title": " ",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "field name"
+                },
+                "order": {
+                    "type": "number",
+                    "description": "used to control the ordering of the fields"
+                },
+                "key": {
+                    "type": "boolean",
+                    "description": "Used to identify this field as part of the key"
+                },
+                "nullvalue": {
+                    "type": "string",
+                    "description": "If defined, this value will be use for null.  When not defined, an empty string will be used."
+                }
+            }
+        }
+
+    }
+
+}
