@@ -13,3 +13,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 com.streever.iot.nifi.processors.examples.FilePartByRegExProcessor
+com.streever.iot.nifi.processors.data.quality.RecordLayoutValidatorProcessor
+com.streever.iot.nifi.processors.data.generator.GenerateRecordProcessor
